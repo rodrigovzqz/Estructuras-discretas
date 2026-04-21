@@ -83,6 +83,13 @@ recorrido (AB r t_i t_d) PosOrden = recorrido t_i PosOrden ++ recorrido t_d PosO
         output: True
 -}
 
+esBalanceado :: Arbol a -> Bool
+esBalanceado Vacio = True
+esBalanceado (AB _ t_i t_d) =
+  abs (altura t_i - altura t_d) <= 1 &&
+  esBalanceado t_i &&
+  esBalanceado t_d
+
 
 
 {- Función: listaArbol

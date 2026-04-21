@@ -4,6 +4,23 @@ data Arbol a = Vacio | AB a (Arbol a) (Arbol a) deriving (Eq, Ord, Show)
 
 
 
+{- Función: altura
+   
+   Descripción: Calcula la altura de un árbol binario.
+
+   Uso: input1:  altura Vacio
+        output1: 0
+
+        input2:  altura (AB 1 (AB 2 Vacio Vacio) Vacio)
+        output2: 2
+-}
+
+altura :: Arbol a -> Int
+altura Vacio = 0
+altura (AB _ t_i t_d) = 1 + max (altura t_i) (altura t_d)
+
+
+
 {- Función: insertar
    
    Descripción:
